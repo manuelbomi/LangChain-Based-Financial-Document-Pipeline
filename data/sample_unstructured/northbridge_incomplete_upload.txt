@@ -1,0 +1,11 @@
+TITLE: Northbridge Financial Group -- Draft Note (Incomplete Upload)
+---
+This synthetic file intentionally omits the CLASSIFICATION, EFFECTIVE_DATE, and
+RETENTION_TAG front-matter fields. It exists so the validation layer's
+required-field check has a realistic example to catch: a document dropped into an
+unstructured intake folder without the governance metadata every ingested document
+is required to carry. The pipeline should route this document to the dead-letter
+store with a reason explaining which fields were missing, rather than silently
+indexing it or crashing.
+
+This is a fictional, synthetic document created for a portfolio demonstration.

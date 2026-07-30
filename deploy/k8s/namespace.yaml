@@ -1,0 +1,7 @@
+# Optional: isolate the toolkit's resources in their own namespace.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: doc-pipeline-toolkit
+  labels:
+    app.kubernetes.io/name: langchain-document-pipeline-toolkit

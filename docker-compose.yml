@@ -1,0 +1,30 @@
+# Local dev convenience: run the CLI in a container against a mounted
+# sample-data volume. Not required to use the toolkit (a local `pip install
+# -e .` works fine) -- this is here for reviewers who'd rather not set up a
+# Python environment at all.
+#
+# Usage:
+#   docker compose run --rm toolkit ingest --source unstructured-files
+#   docker compose run --rm toolkit dead-letter list
+#   docker compose up toolkit   # runs the default CMD (health-check)
+
+services:
+  toolkit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: langchain-document-pipeline-toolkit:local
+    volumes:
+      # Mount sample data + persist pipeline state (delta index, dead
+      # letter store, audit log) across container runs on the host.
+      - ./data:/app/data
+    environment:
+      TOOLKIT_ENVIRONMENT: docker-compose
+      TOOLKIT_LOG_LEVEL: INFO
+      TOOLKIT_LOG_FORMAT: json
+      # Package-relative default paths don't resolve correctly once the
+      # package is installed into site-packages inside the image, so we
+      # pin them explicitly to the mounted volume -- see Dockerfile comment.
+      TOOLKIT_SAMPLE_UNSTRUCTURED_DIR: /app/data/sample_unstructured
+      TOOLKIT_SAMPLE_DB_PATH: /app/data/sample_bank.db
+      TOOLKIT_STATE_DIR: /app/data/state

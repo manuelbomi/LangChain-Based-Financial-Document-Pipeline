@@ -1,0 +1,15 @@
+TITLE: Northbridge Financial Group -- Regional Branch Directory
+CLASSIFICATION: internal
+EFFECTIVE_DATE: 2026-01-20
+RETENTION_TAG: standard-3y
+---
+Northbridge Financial Group regional branch directory (synthetic example data).
+
+Northbridge Financial Group -- Riverton Branch: Monday-Friday 9:00 AM - 5:00 PM.
+Northbridge Financial Group -- Eastgate Branch: Monday-Friday 9:00 AM - 6:00 PM,
+Saturday 9:00 AM - 1:00 PM.
+Northbridge Financial Group -- Lakeside Branch: Monday-Friday 9:00 AM - 5:00 PM,
+closed Saturday and Sunday.
+
+This is a fictional, synthetic document created for a portfolio demonstration and
+does not describe any real financial institution's locations.

@@ -1,0 +1,49 @@
+# One-off Job for the very first full ingest (before the CronJob's
+# incremental reindex schedule takes over). Run manually:
+#   kubectl apply -f deploy/k8s/job-initial-ingest.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: doc-pipeline-initial-ingest
+  namespace: doc-pipeline-toolkit
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        fsGroup: 10001
+      containers:
+        - name: ingest
+          image: langchain-document-pipeline-toolkit:latest
+          # Ingest every bundled sample source once. In a real deployment,
+          # replace `unstructured-files` with real source flags or run one
+          # Job per source.
+          command:
+            - "sh"
+            - "-c"
+            - "toolkit ingest --source core-banking && toolkit ingest --source relational-db && toolkit ingest --source unstructured-files"
+          envFrom:
+            - configMapRef:
+                name: doc-pipeline-toolkit-config
+          volumeMounts:
+            - name: state
+              mountPath: /app/data
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+            capabilities:
+              drop: ["ALL"]
+      volumes:
+        - name: state
+          persistentVolumeClaim:
+            claimName: doc-pipeline-toolkit-state

@@ -1,0 +1,18 @@
+TITLE: Northbridge Financial Group -- KYC Case Note (Synthetic)
+CLASSIFICATION: restricted
+EFFECTIVE_DATE: 2026-02-10
+RETENTION_TAG: standard-7y
+---
+Northbridge Financial Group Know-Your-Customer case note (synthetic example, all
+identifiers below are randomly generated fake values for demonstration purposes only
+and do not belong to any real person).
+
+Customer contacted Northbridge Financial Group branch requesting a credit limit
+increase. For verification, the customer confirmed their taxpayer ID on file. Example
+SSN pattern used for testing PII detection: 123-45-6789. Example Northbridge Financial
+Group account number used for testing PII detection: 4200123456. Case escalated to
+Northbridge Financial Group compliance for standard periodic review; no adverse action
+taken.
+
+This is a fictional, synthetic document created for a portfolio demonstration and
+does not describe any real financial institution's policies or any real customer.

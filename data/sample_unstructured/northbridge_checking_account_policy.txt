@@ -1,0 +1,16 @@
+TITLE: Northbridge Financial Group -- Personal Checking Account Policy
+CLASSIFICATION: internal
+EFFECTIVE_DATE: 2026-01-05
+RETENTION_TAG: standard-7y
+---
+Northbridge Financial Group Personal Checking Account Policy (internal reference copy).
+
+This document describes internal handling procedures for Northbridge Financial Group
+personal checking accounts. Front-line staff should confirm identity using two forms
+of identification before making any changes to account contact details. Northbridge
+Financial Group requires a supervisor override for any fee waiver exceeding $50 in a
+single calendar month. Account closure requests must be logged in the Northbridge
+Financial Group case management system within one business day.
+
+This is a fictional, synthetic document created for a portfolio demonstration and
+does not describe any real financial institution's policies.

@@ -1,0 +1,14 @@
+# Persists delta-index state, the dead-letter store, and the audit log
+# across CronJob runs -- without this, every scheduled run would look like
+# a fresh "index everything as new" run instead of an incremental reindex.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: doc-pipeline-toolkit-state
+  namespace: doc-pipeline-toolkit
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

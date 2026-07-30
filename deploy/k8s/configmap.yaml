@@ -1,0 +1,22 @@
+# Non-secret runtime configuration for the toolkit, mounted as environment
+# variables into the Job/CronJob pod. Mirrors .env.example -- see
+# toolkit/config.py for full documentation of each setting.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: doc-pipeline-toolkit-config
+  namespace: doc-pipeline-toolkit
+data:
+  TOOLKIT_ENVIRONMENT: "production"
+  TOOLKIT_LOG_LEVEL: "INFO"
+  TOOLKIT_LOG_FORMAT: "json"
+  TOOLKIT_CHUNK_SIZE: "400"
+  TOOLKIT_CHUNK_OVERLAP: "50"
+  TOOLKIT_FRESHNESS_SLA_HOURS: "24"
+  # Package-relative defaults don't resolve inside the container image
+  # (the package lives under site-packages), so state/sample paths are
+  # pinned explicitly onto the mounted PersistentVolumeClaim -- see
+  # persistent-volume-claim.yaml.
+  TOOLKIT_SAMPLE_UNSTRUCTURED_DIR: "/app/data/sample_unstructured"
+  TOOLKIT_SAMPLE_DB_PATH: "/app/data/sample_bank.db"
+  TOOLKIT_STATE_DIR: "/app/data/state"
